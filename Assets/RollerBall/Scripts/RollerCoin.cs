@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RollerCoin : MonoBehaviour
+public class RollerCoin : MonoBehaviour, IDestructable
 {
     public float amplitude;
     public float rate;
@@ -11,6 +11,12 @@ public class RollerCoin : MonoBehaviour
     Vector3 initialPosition;
     float time;
     float angle;
+
+    public void Destroyed()
+    {
+        RollerGameManager.Instance.Score++;
+    
+    }
 
     void Start()
     {
